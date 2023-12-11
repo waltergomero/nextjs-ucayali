@@ -1,23 +1,22 @@
-import Form from '@/app/ui/invoices/create-form';
+import UserForm from '@/components/ui/users/create-form';
 import Breadcrumbs from '@/components/ui/users/breadcrumbs';
-import { fetchFilteredUsers } from '@/app/actions/user-actions';
+
  
 export default async function Page() {
-  const users = await fetchFilteredUsers();
- 
+
   return (
     <main>
       <Breadcrumbs
         breadcrumbs={[
-          { label: 'Invoices', href: '/dashboard/invoices' },
+          { label: 'Users', href: '/dashboard/users/create' },
           {
-            label: 'Create Invoice',
-            href: '/dashboard/invoices/create',
+            label: 'Create User',
+            href: '/dashboard/users/create',
             active: true,
           },
         ]}
       />
-      <Form users={users} />
+      <UserForm  />
     </main>
   );
 }
