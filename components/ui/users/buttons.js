@@ -1,4 +1,4 @@
-import { PencilIcon, PlusIcon, TrashIcon } from '@heroicons/react/24/outline';
+import { PencilIcon, PlusIcon, TrashIcon, XCircleIcon } from '@heroicons/react/24/outline';
 import Link from 'next/link';
 import { deleteUser } from '@/app/actions/user-actions';
  
@@ -34,5 +34,28 @@ export function DeleteUser({ id }) {
         <TrashIcon className="w-4" />
       </button>
     </form>
+  );
+}
+
+export function CancelUser() {
+  return (
+    <Link
+      href="/dashboard/users"
+      className="flex h-10 items-center rounded-lg bg-gray-400 px-4 text-sm font-medium text-white transition-colors hover:bg-gray-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-600">
+    
+      <span className="hidden md:block">Cancel</span>{' '}
+      <XCircleIcon className="h-6 md:ml-4" />
+    </Link>
+  );
+}
+
+export function SaveUser({ id }) {
+  return (
+
+      <button  className="flex h-10 items-center rounded-lg bg-blue-600 px-4 text-sm font-medium text-white transition-colors hover:bg-blue-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600">
+        <span className="hidden md:block">Save</span>
+        <PlusIcon className="h-6 md:ml-4" />
+      </button>
+    
   );
 }

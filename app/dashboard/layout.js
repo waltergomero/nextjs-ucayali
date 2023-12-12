@@ -2,7 +2,7 @@ import SideNav from '@/components/ui/dashboard/sidenav'
  
 export default function Layout({ children }) {
   return (
-    <div className="flex h-screen flex-col md:flex-row md:overflow-hidden bg-gray-100">
+    <div className="flex h-screen flex-col md:flex-row md:overflow-hidden ">
       <div className="w-full flex-none md:w-64">
         <SideNav />
       </div>

@@ -20,7 +20,7 @@ export const fetchFilteredUsers = async (q, page) => {
           .skip(ITEM_PER_PAGE * (page - 1));
       await db.disconnect();
       return { users };
-    } catch (err) {
+    }  catch (err) {
       console.log(err);
       //throw new Error("Failed to fetch users!");
     }
@@ -37,15 +37,24 @@ export const fetchFilteredUsers = async (q, page) => {
     }
   };
 
-  export async function createUser(dataForm) {
+  export async function createUser(formData) {
+    console.log("form data: ", formData)
     try {
+      const first_name = formData.get('first_name');
+      const last_name = formData.get('last_name');
+      const email = formData.get('email');
+      const password = formData.get('password');
+      const isAdmin = formData.get('isadmin');
+      const isActive = formData.get('isactive');
+
+      console.log(first_name, last_name, email, password, isAdmin, isActive);
       await db.connect();
-      //await User.findByIdAndDelete(id);
+
       await db.disconnect();
 
     } catch (err) {
       console.log(err);
-      throw new Error("Failed to insert new user!");
+      //throw new Error("Failed to insert new user!");
     }
     revalidatePath("/dashboard/users");
   };
