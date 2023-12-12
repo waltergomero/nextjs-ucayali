@@ -25,6 +25,7 @@ export const fetchFilteredUsers = async (q, page) => {
       //throw new Error("Failed to fetch users!");
     }
   };
+
   export const fetchUser = async (id) => {
     console.log(id);
     try {
@@ -47,7 +48,8 @@ export const fetchFilteredUsers = async (q, page) => {
       const isAdmin = formData.get('isadmin');
       const isActive = formData.get('isactive');
 
-      console.log(first_name, last_name, email, password, isAdmin, isActive);
+      
+      const hashedPassword = await bcrypt.hash(password, 10);
       await db.connect();
 
       await db.disconnect();
