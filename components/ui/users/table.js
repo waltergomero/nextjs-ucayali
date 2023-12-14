@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import { UpdateUser, DeleteUser } from '@/components/ui/users/buttons';
+import { UserIcon} from "@heroicons/react/24/outline";
 //import InvoiceStatus from '@/app/ui/invoices/status';
 
 import { fetchFilteredUsers } from '@/app/actions/user-actions';
@@ -23,7 +24,7 @@ export default async function UsersTable({query, currentPage,}) {
                   <div>
                     <div className="mb-2 flex items-center">
                       <Image
-                        src={user.image_url}
+                        src="/user-icon.png"
                         className="mr-2 rounded-full"
                         width={28}
                         height={28}
@@ -76,7 +77,7 @@ export default async function UsersTable({query, currentPage,}) {
                   <td className="whitespace-nowrap py-3 pl-6 pr-3">
                     <div className="flex items-center gap-3">
                       <Image
-                        src={user.image_url}
+                        src="/user-icon.png"
                         className="rounded-full"
                         width={28}
                         height={28}
