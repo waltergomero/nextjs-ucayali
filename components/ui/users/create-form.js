@@ -1,7 +1,7 @@
 "use client";
 
 import { createUser } from "@/actions/_user-actions";
-import { SaveUser } from "@/components/ui/users/buttons";
+import { SaveUserBtn } from "@/components/ui/users/buttons";
 import Link from "next/link";
 import { toast } from "sonner";
 
@@ -14,8 +14,9 @@ export default function UserCreateForm() {
   };
 
   return (
-    <div className="flex flex-col justify-center items-center border-2 border-gray-200 rounded-md ">
-      <form action={_createUser} className="rounded-md p-4 w-full bg-gray-50 ">
+
+    <div className=" flex flex-col justify-center items-center border-2 border-gray-200 rounded-md ">
+      <form action={_createUser} className="rounded-md p-10 w-full bg-gray-50 ">
         <div className="flex flex-wrap -mx-3 mb-6">
           <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
             <label
@@ -129,9 +130,10 @@ export default function UserCreateForm() {
           >
             Cancel
           </Link>
-          <SaveUser/>
+          <SaveUserBtn/>
         </div>
       </form>
     </div>
+    
   );
 }

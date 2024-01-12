@@ -32,6 +32,24 @@ export const fetchFilteredUsers = async (q, page) => {
   }
 };
 
+export async function fetchUserPages(query) {
+  noStore();
+  const regex = new RegExp(query, "i");
+
+  try {
+    await db.connect();
+    const count = await User.find({ email: { $regex: regex } }).count();
+    await db.disconnect();
+    const totalpages = Math.ceil(Number(count) / ITEM_PER_PAGE);
+
+    return totalpages;
+
+  } catch (err) {
+    return({error: "Failed to fetch users!"});
+  }
+}
+
+
 export const fetchUserById = async (id) => {
   try {
     await db.connect();
@@ -44,6 +62,7 @@ export const fetchUserById = async (id) => {
 };
 
 export async function createUser(formData) {
+
   try {
     const first_name = formData.get("first_name");
     const last_name = formData.get("last_name");
@@ -56,7 +75,7 @@ export async function createUser(formData) {
 
     if (userexists) {
       //throw new Error("User with this email account already exists.");
-      return { error: "User with this email account already exists." };
+      return { error: `User with this email account ${email} already exists.` };
     }
 
     const salt = await bcrypt.genSalt(10);
@@ -146,22 +165,7 @@ export async function deleteUser(id) {
 }
 
 
-export async function fetchUserPages(query) {
-  noStore();
-  const regex = new RegExp(query, "i");
 
-  try {
-    await db.connect();
-    const count = await User.find({ email: { $regex: regex } }).count();
-    await db.disconnect();
-    const totalpages = Math.ceil(Number(count) / ITEM_PER_PAGE);
-
-    return totalpages;
-
-  } catch (err) {
-    return({error: "Failed to fetch users!"});
-  }
-}
 
 
 export async function authenticate(

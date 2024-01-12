@@ -1,7 +1,7 @@
 "use client";
 
 import { updateUser } from "@/actions/_user-actions";
-import { SaveUser } from "@/components/ui/users/buttons";
+import { SaveUserBtn } from "@/components/ui/users/buttons";
 import Link from "next/link";
 import { toast } from "sonner";
 
@@ -176,7 +176,7 @@ export default function UserEditForm({user}) {
           >
             Cancel
           </Link>
-          <SaveUser/>
+          <SaveUserBtn/>
         </div>
       </form>
     </div>
