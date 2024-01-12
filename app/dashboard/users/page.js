@@ -5,6 +5,9 @@ import {  poppins } from '@/components/ui/fonts';
 import Pagination from '@/components/ui/users/pagination';
 import { fetchUserPages } from '@/actions/_user-actions';
 import { Suspense } from 'react';
+import { Metadata } from 'next';
+
+export const metadata = {  title: 'Users',};
 
 export default async function Page({ searchParams,}) {
 
