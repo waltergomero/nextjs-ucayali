@@ -1,13 +1,10 @@
 import Image from 'next/image';
 import { UpdateUser, DeleteUser } from '@/components/ui/users/buttons';
-import Pagination from '@/components/ui/users/pagination';
 import { fetchFilteredUsers } from '@/actions/_user-actions';
 import { Fragment } from 'react';
 
 export default async function UsersTable({ query, currentPage }) {
-  const data = await fetchFilteredUsers(query, currentPage);
-  const users = data[0];
-  const totalPages = data[1];
+  const users = await fetchFilteredUsers(query, currentPage);
 
   return (
     <Fragment>
@@ -115,9 +112,7 @@ export default async function UsersTable({ query, currentPage }) {
           </div>
         </div>
       </div>
-      <div className="mt-5 flex w-full justify-center">
-        <Pagination totalPages={totalPages} />
-      </div>
+
     </Fragment>
   );
 }

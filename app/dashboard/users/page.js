@@ -2,13 +2,15 @@ import Search from '@/components/ui/search';
 import Table from '@/components/ui/users/table';
 import { CreateUser } from '@/components/ui/users/buttons';
 import {  poppins } from '@/components/ui/fonts';
+import Pagination from '@/components/ui/users/pagination';
+import { fetchUserPages } from '@/actions/_user-actions';
 import { Suspense } from 'react';
 
 export default async function Page({ searchParams,}) {
 
   const query = searchParams?.query || '';
   const currentPage = Number(searchParams?.page) || 1;
-
+  const totalPages = await fetchUserPages(query);
 
   return (
     <div className="w-full">
@@ -22,6 +24,9 @@ export default async function Page({ searchParams,}) {
       <Suspense key={query + currentPage} >
         <Table query={query} currentPage={currentPage} />
       </Suspense>
+      <div className="mt-5 flex w-full justify-center">
+        <Pagination totalPages={totalPages} />
+      </div>
     </div>
   );
 }

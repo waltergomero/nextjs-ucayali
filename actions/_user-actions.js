@@ -7,15 +7,17 @@ import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
 import { signIn } from '@/auth';
 import { AuthError } from 'next-auth';
+import { unstable_noStore as noStore } from 'next/cache';
+
+const ITEM_PER_PAGE = 8;
 
 export const fetchFilteredUsers = async (q, page) => {
+ 
   const regex = new RegExp(q, "i");
-  const ITEM_PER_PAGE = 8;
-
+ 
   try {
     await db.connect();
-    console.log("connect")
-    const count = await User.find({ email: { $regex: regex } }).count();
+
     const users = await User.find({ email: { $regex: regex } })
       .sort({ last_name: 1, first_name: 1 })
       .limit(ITEM_PER_PAGE)
@@ -23,9 +25,7 @@ export const fetchFilteredUsers = async (q, page) => {
 
     await db.disconnect();
 
-    const totalpages = Math.ceil(Number(count) / ITEM_PER_PAGE);
-
-    return [users, totalpages]
+    return users
 
   } catch (err) {
     return({error: "Failed to fetch users!"});
@@ -145,29 +145,23 @@ export async function deleteUser(id) {
   revalidatePath("/dashboard/users");
 }
 
-// const ITEMS_PER_PAGE = 6;
 
-// export async function fetchUserPages(query) {
-//   noStore();
-//   try {
-//     const count = await sql`SELECT COUNT(*)
-//     FROM invoices
-//     JOIN customers ON invoices.customer_id = customers.id
-//     WHERE
-//       customers.name ILIKE ${`%${query}%`} OR
-//       customers.email ILIKE ${`%${query}%`} OR
-//       invoices.amount::text ILIKE ${`%${query}%`} OR
-//       invoices.date::text ILIKE ${`%${query}%`} OR
-//       invoices.status ILIKE ${`%${query}%`}
-//   `;
+export async function fetchUserPages(query) {
+  noStore();
+  const regex = new RegExp(query, "i");
 
-//     const totalPages = Math.ceil(Number(count.rows[0].count) / ITEMS_PER_PAGE);
-//     return totalPages;
-//   } catch (error) {
-//     console.error('Database Error:', error);
-//     throw new Error('Failed to fetch total number of invoices.');
-//   }
-// }
+  try {
+    await db.connect();
+    const count = await User.find({ email: { $regex: regex } }).count();
+    await db.disconnect();
+    const totalpages = Math.ceil(Number(count) / ITEM_PER_PAGE);
+
+    return totalpages;
+
+  } catch (err) {
+    return({error: "Failed to fetch users!"});
+  }
+}
 
 
 export async function authenticate(
