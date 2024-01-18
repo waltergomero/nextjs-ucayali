@@ -6,14 +6,14 @@ import { signOut, auth } from '@/auth';
 
 export default async function SideNav() {
   const session = await auth()
+  console.log(session)
   return (
     <div className="flex h-full flex-col border border-gray-200">
       <Link
         className="flex h-15items-end justify-start bg-blue-600 p-4 md:h-15"
         href="/">
-        <div className="w-32 text-white md:w-40">
-        {session?.user.firs_name}
-         <span> email</span>
+        <div className="w-32 text-white md:w-40">     
+         <span> email: </span> {session?.user.email}
         </div>
       </Link>
       <div className="flex grow flex-row justify-between space-x-2 md:flex-col md:space-x-0 md:space-y-2">
