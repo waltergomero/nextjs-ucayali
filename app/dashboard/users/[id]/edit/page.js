@@ -1,5 +1,5 @@
 import UserEditForm from "@/components/ui/users/edit-form";
-import Breadcrumbs from "@/components/ui/users/breadcrumbs";
+import Breadcrumbs from "@/components/ui/breadcrumbs";
 import {fetchUserById} from '@/actions/_user-actions'
 import notFound from "./not-found";
 
@@ -7,7 +7,7 @@ export default async function UserEditPage({params}) {
   const id = params.id;
 
   const [user] = await Promise.all([fetchUserById(id)]);
-  console.log("user info: ", user)
+
   if (!user) {
     notFound();
   }

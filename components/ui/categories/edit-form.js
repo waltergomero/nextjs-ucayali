@@ -52,11 +52,11 @@ export default function CategoryEditForm({category, parentcategory}) {
             >
               <option value="">
               </option>
-              {/* {parentcategory.map((pc) => (
+              {parentcategory.map((pc) => (
                 <option key={pc._id.toString()} value={pc._id.toString()}>
                   {pc.category_name}
                 </option>
-              ))} */}
+              ))}
             </select>
           </div>
           </div>

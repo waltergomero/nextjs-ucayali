@@ -6,6 +6,7 @@ import Link from "next/link";
 import { toast } from "sonner";
 
 export default function UserEditForm({user}) {
+
   const _updateUser = async (formData) => {
     const result = await updateUser(formData);
     if (result?.error) {
@@ -18,7 +19,7 @@ export default function UserEditForm({user}) {
       <form action={_updateUser} className="rounded-md p-4 w-full bg-gray-50 ">
         <div className="flex flex-wrap -mx-3 mb-6">
           <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-            <input type="hidden" name="id" defaultValue={user._id}/>
+            <input type="hidden" name="id" defaultValue={user._id.toString()}/>
             <label
               className="block  tracking-wide text-gray-700 text-sm font-bold mb-2"
               htmlFor="first_name"

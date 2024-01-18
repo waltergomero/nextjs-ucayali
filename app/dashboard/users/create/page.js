@@ -1,5 +1,5 @@
 import UserCreateForm from "@/components/ui/users/create-form";
-import Breadcrumbs from "@/components/ui/users/breadcrumbs";
+import Breadcrumbs from "@/components/ui/breadcrumbs";
 
 export default async function UserCreatePage() {
   return (

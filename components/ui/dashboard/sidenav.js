@@ -2,16 +2,17 @@ import Link from 'next/link';
 import NavLinks from '@/components/ui/dashboard/nav-links';
 import AcmeLogo from '@/components/ui/acme-logo';
 import { PowerIcon } from '@heroicons/react/24/outline';
-import { signOut } from '@/auth';
+import { signOut, auth } from '@/auth';
 
-export default function SideNav() {
+export default async function SideNav() {
+  const session = await auth()
   return (
     <div className="flex h-full flex-col border border-gray-200">
       <Link
         className="flex h-15items-end justify-start bg-blue-600 p-4 md:h-15"
         href="/">
         <div className="w-32 text-white md:w-40">
-         Walter Gomero 
+        {session?.user.firs_name}
          <span> email</span>
         </div>
       </Link>

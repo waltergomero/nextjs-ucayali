@@ -55,9 +55,9 @@ export const fetchUserById = async (id) => {
     await db.connect();
     const user = await User.findById(id);
     await db.disconnect();
-    return user;
+    return user
   } catch (err) {
-    return({error: "Failed to fetch user!"});
+    return({error: err + "Failed to fetch user!"});
   }
 };
 
