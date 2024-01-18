@@ -50,6 +50,7 @@ export async function fetchParentCategories() {
   try {
     await db.connect();
     const parentecategories = await Category.find().select('category_name' - '_id').sort({ category_name: 1 });
+    console.log("parent categories actions: ", parentecategories)
     await db.disconnect();
     
    console.log("parent categories actions: ", parentecategories)
@@ -60,7 +61,6 @@ export async function fetchParentCategories() {
     return({error: "Failed to fetch parent categories!"});
   }
 }
-
 
 
 export const fetchCategoryById = async (id) => {
@@ -74,13 +74,14 @@ export const fetchCategoryById = async (id) => {
   }
 };
 
+
 export async function createCategory(formData) {
 
   try {
     console.log("form data: ", formData)
     const category_name = formData.get("category_name");
     const parent_category_id = formData.get("parent_category_id");
-    const parent_category_name = formData.get("parent_category_name");
+    let parent_category_name = "";
     const notes = formData.get("notes");
 
     await db.connect();
@@ -89,6 +90,13 @@ export async function createCategory(formData) {
     if (categoryexists) {
       return { error: `Category name ${category_name} already exists.` };
     }
+
+    if(parent_category_id != "") {
+     const parentcategoryname = await Category.findOne({ _id: parent_category_id }).select('category_name');
+    if (parentcategoryname) {
+      parent_category_name = parentcategoryname.category_name;
+    }
+  }
 
     const newCategory = new Category({
       category_name,
@@ -113,7 +121,7 @@ export async function updateCategory(formData) {
     const id = formData.get("id");
     const category_name = formData.get("category_name");
     const parent_category_id = formData.get("parent_category_id");
-    const parent_category_name = formData.get("parent_category_id").value;
+    let parent_category_name = "";
     const isActive = formData.get("isactive");
     const notes = formData.get("notes");
 
@@ -121,11 +129,19 @@ export async function updateCategory(formData) {
     const categoryexists = await Category.findOne({ category_name: category_name });
 
     if (categoryexists) {
-      console.log("dbid: ", categoryexists._id, "passed id: ", id)
       if (categoryexists._id != id) {
         return  {error: `Category name "${category_name}"  already exists`};
       }
     }
+
+    if(parent_category_id != "") {
+    const parentcategoryname = await Category.findOne({ _id: parent_category_id }).select('category_name');
+    console.log("parent category name: ", parentcategoryname.category_name)
+    if (parentcategoryname) {
+      parent_category_name = parentcategoryname.category_name;
+    }
+   }
+
 
     const query = {
       category_name: category_name,
@@ -134,7 +150,7 @@ export async function updateCategory(formData) {
       isActive: isActive,
       notes: notes,
     };
-    
+    console.log("query: ", query)
     await Category.updateOne({ _id: id}, query);
     await db.disconnect();
 

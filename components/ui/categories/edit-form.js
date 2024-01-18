@@ -1,6 +1,5 @@
 "use client";
 
-import { useState} from "react";
 import { updateCategory } from "@/actions/_category-actions";
 import { SaveCategoryBtn } from "@/components/ui/categories/buttons";
 import Link from "next/link";
@@ -8,20 +7,11 @@ import { toast } from "sonner";
 
 export default function CategoryEditForm({category, parentcategory}) {
 
-  const [parentCategoryValue, setParentCategoryValue] = useState(
-    category? category.parent_category_name: ""
-);
-
   const _updateCategory = async (formData) => {
     const result = await updateCategory(formData);
     if (result?.error) {
       toast.error(result.error);
     } 
-  };
-  const handleselectCategoryChange = (e) => {
-    //e.preventDefault();
-    console.log("e: ", e)
-    setParentCategoryValue(e.target.options[e.target.selectedIndex].text)
   };
 
   return (
@@ -34,11 +24,6 @@ export default function CategoryEditForm({category, parentcategory}) {
               type="hidden"
               name="id"
               defaultValue={category._id.toString()}
-             />
-          <input
-              type="text"
-              name="parent_category_name"
-              defaultValue={parentCategoryValue}
              />
             <label
               className="block  tracking-wide text-gray-700 text-sm font-bold mb-2"
@@ -61,18 +46,17 @@ export default function CategoryEditForm({category, parentcategory}) {
           <div className="relative">
             <select
               name="parent_category_id"
-              onChange={handleselectCategoryChange}
-              defaultValue={category.parent_category_id}
+              defaultValue={category.parent_category_id.toString()}
               className="peer block w-full cursor-pointer rounded-md border border-gray-200 py-2 pl-10 text-sm outline-2 placeholder:text-gray-500"
               aria-describedby="parent-category-error"
             >
               <option value="">
               </option>
-              {parentcategory.map((pc) => (
+              {/* {parentcategory.map((pc) => (
                 <option key={pc._id.toString()} value={pc._id.toString()}>
                   {pc.category_name}
                 </option>
-              ))}
+              ))} */}
             </select>
           </div>
           </div>
