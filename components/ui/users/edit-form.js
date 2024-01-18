@@ -30,7 +30,7 @@ export default function UserEditForm({user}) {
               name="first_name"
               defaultValue={user.first_name}
               required
-              className="appearance-none block w-full text-sm text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-red-500"
+              className="appearance-none block w-full text-sm text-gray-700 border border-gray-200 rounded py-2 px-4 leading-tight focus:outline-none focus:bg-white focus:border-red-500"
             />
           </div>
           <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
@@ -45,7 +45,7 @@ export default function UserEditForm({user}) {
               name="last_name"
               defaultValue={user.last_name}
               required
-              className="appearance-none block w-full text-sm text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-red-500"
+              className="appearance-none block w-full text-sm text-gray-700 border border-gray-200 rounded py-2 px-4 leading-tight focus:outline-none focus:bg-white focus:border-red-500"
             />
           </div>
         </div>
@@ -62,7 +62,7 @@ export default function UserEditForm({user}) {
               name="email"
               defaultValue={user.email}
               required
-              className="appearance-none block w-full text-sm text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-red-500"
+              className="appearance-none block w-full text-sm text-gray-700 border border-gray-200 rounded py-2 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-red-500"
             />
           </div>
           <div className="w-full px-3 mb-6 md:mb-0">
@@ -75,7 +75,7 @@ export default function UserEditForm({user}) {
             <input
               type="password"
               name="password"
-              className="appearance-none block w-full text-sm text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-red-500"
+              className="appearance-none block w-full text-sm text-gray-700 border border-gray-200 rounded py-2 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-red-500"
             />
             <p className="text-red-500 text-xs">Leave password field empty if you don't want to change user password.</p>
           </div>
@@ -86,7 +86,7 @@ export default function UserEditForm({user}) {
               <legend className="mb-2 block text-sm font-medium">
                 Is Admin?
               </legend>
-              <div className="rounded-md border border-gray-200 bg-white px-[14px] py-3">
+              <div className="rounded-md border border-gray-200 bg-white px-[14px] py-2">
                 <div className="flex gap-4">
                   <div className="flex items-center">
                     <input

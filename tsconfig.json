@@ -29,6 +29,6 @@
     ".next/types/**/*.ts",
     "app/lib/placeholder-data.js",
     "scripts/seed.js"
-, "components/ui/auth/login-form.js", "app/login/page.js", "app/page.js", "app/dashboard/layout.js", "app/lib/actions.js", "app/lib/definitions.js", "auth.js", "components/ui/fonts.js", "components/ui/button2.js", "components/ui/dashboard/nav-links.js", "components/ui/dashboard/sidenav.js", "app/layout.js", "components/ui/users/pagination.JS"  ],
+, "components/ui/auth/login-form.js", "app/login/page.js", "app/page.js", "app/dashboard/layout.js", "app/lib/actions.js", "app/lib/definitions.js", "auth.js", "components/ui/fonts.js", "components/ui/button2.js", "components/ui/dashboard/nav-links.js", "components/ui/dashboard/sidenav.js", "app/layout.js", "components/ui/pagination.js"  ],
   "exclude": ["node_modules"]
 }

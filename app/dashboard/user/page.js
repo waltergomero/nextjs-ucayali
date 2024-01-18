@@ -2,14 +2,13 @@ import Search from '@/components/ui/search';
 import Table from '@/components/ui/users/table';
 import { CreateUser } from '@/components/ui/users/buttons';
 import {  poppins } from '@/components/ui/fonts';
-import Pagination from '@/components/ui/users/pagination';
+import Pagination from '@/components/ui/pagination';
 import { fetchUserPages } from '@/actions/_user-actions';
 import { Suspense } from 'react';
-import { Metadata } from 'next';
 
 export const metadata = {  title: 'Users',};
 
-export default async function Page({ searchParams,}) {
+export default async function UserPage({ searchParams,}) {
 
   const query = searchParams?.query || '';
   const currentPage = Number(searchParams?.page) || 1;

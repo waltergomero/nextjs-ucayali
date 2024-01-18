@@ -9,7 +9,7 @@ import { signIn } from '@/auth';
 import { AuthError } from 'next-auth';
 import { unstable_noStore as noStore } from 'next/cache';
 
-const ITEM_PER_PAGE = 8;
+const ITEM_PER_PAGE = 10;
 
 export const fetchFilteredUsers = async (q, page) => {
  
