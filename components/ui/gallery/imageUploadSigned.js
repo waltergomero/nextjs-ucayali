@@ -2,14 +2,14 @@
 
 import { CldUploadWidget } from 'next-cloudinary';
  
-const UploadUnSignedImages = () => {
+const UploadSignedImages =   () => {
   return (
     <div>
-        <CldUploadWidget uploadPreset="gallery">
+        <CldUploadWidget signatureEndpoint="/api/imagesignature">
         {({ open }) => {
             return (
             <button onClick={() => open()}>
-                Upload an Image
+                Upload Signed Image
             </button>
             );
         }}
@@ -18,4 +18,4 @@ const UploadUnSignedImages = () => {
   )
 }
 
-export default UploadUnSignedImages
+export default UploadSignedImages

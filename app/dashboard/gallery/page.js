@@ -3,7 +3,9 @@ import Table from '@/components/ui/gallery/table';
 import { UploadImages } from '@/components/ui/gallery/buttons';
 import {  poppins } from '@/components/ui/fonts';
 import { Suspense } from 'react';
-import UploadUnSignedImages from '@/components/ui/gallery/uploadUnSigned';
+import UploadUnSignedImages from '@/components/ui/gallery/imageUploadUnSigned';
+//import UploadSignedImages from '@/components/ui/gallery/imageUploadSigned';
+import {UploadImageDialog} from '@/components/ui/gallery/upload-dialogbox'
 
 export const metadata = {  title: 'Image Gallery',};
 
@@ -19,6 +21,7 @@ export default async function GalleryPage({ searchParams,}) {
       </div>
       <div className="mt-4 flex items-center justify-between gap-2 md:mt-2">
         <Search placeholder="Search for images..." />
+        <UploadImageDialog/>
         <UploadUnSignedImages />
       </div>
       <Suspense key={query + currentPage} >
