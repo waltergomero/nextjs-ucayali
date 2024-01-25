@@ -49,12 +49,8 @@ export async function fetchParentCategories() {
 
   try {
     await db.connect();
-    const parentecategories = await Category.find().select('category_name _id').sort({ category_name: 1 });
-    console.log("parent categories actions: ", parentecategories)
+    const parentecategories = await Category.find().select('_id category_name').sort({ category_name: 1 }).lean();
     await db.disconnect();
-    
-   console.log("parent categories actions: ", parentecategories)
-
     return parentecategories;
 
   } catch (err) {
@@ -77,7 +73,7 @@ export const fetchCategoryById = async (id) => {
 export const fetchCategories = async () => {
   try {
     await db.connect();
-    const category = await Category.find({}).select('_id category_name');
+    let category = await Category.find().select('_id category_name').lean();
     await db.disconnect();
     return category;
   } catch (err) {
