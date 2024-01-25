@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { UpdateUser, DeleteUser } from '@/components/ui/users/buttons';
+import { UpdateUser, DeleteUser } from '@/components/ui/dashboard/users/buttons';
 import { fetchFilteredUsers } from '@/actions/_user-actions';
 import { Fragment } from 'react';
 import { CldUploadWidget } from 'next-cloudinary';

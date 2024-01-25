@@ -1,4 +1,4 @@
-import StatusCreateForm from "@/components/ui/status/create-form";
+import StatusCreateForm from "@/components/ui/dashboard/status/create-form";
 import {fetchStatusTypeId} from "@/actions/_status-actions";
 import Breadcrumbs from "@/components/ui/breadcrumbs";
 

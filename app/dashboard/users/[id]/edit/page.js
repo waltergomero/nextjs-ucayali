@@ -1,4 +1,4 @@
-import UserEditForm from "@/components/ui/users/edit-form";
+import UserEditForm from "@/components/ui/dashboard/users/edit-form";
 import Breadcrumbs from "@/components/ui/breadcrumbs";
 import {fetchUserById} from '@/actions/_user-actions'
 import notFound from "./not-found";

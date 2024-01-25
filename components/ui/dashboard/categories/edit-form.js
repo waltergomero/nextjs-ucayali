@@ -1,7 +1,7 @@
 "use client";
 
 import { updateCategory } from "@/actions/_category-actions";
-import { SaveCategoryBtn } from "@/components/ui/categories/buttons";
+import { SaveCategoryBtn } from "@/components/ui/dashboard/categories/buttons";
 import Link from "next/link";
 import { toast } from "sonner";
 

@@ -2,7 +2,7 @@
 
 import { useState} from "react";
 import { createCategory } from "@/actions/_category-actions";
-import { SaveCategoryBtn } from "@/components/ui/categories/buttons";
+import { SaveCategoryBtn } from "@/components/ui/dashboard/categories/buttons";
 import Link from "next/link";
 import { toast } from "sonner";
 
@@ -14,10 +14,6 @@ export default function CategoryCreateForm({parentcategory}) {
     if (result?.error) {
       toast.error(result.error);
     } 
-  };
-
-  const handleselectCategoryChange = (e) => {
-    setParentCategoryValue(e.target.options[e.target.selectedIndex].text)
   };
 
 
@@ -52,7 +48,6 @@ export default function CategoryCreateForm({parentcategory}) {
           <div className="relative">
             <select
               name="parent_category"
-              onChange={handleselectCategoryChange}
               className="peer block w-full cursor-pointer rounded-md border border-gray-200 py-2 pl-10 text-sm outline-2 placeholder:text-gray-500"
               aria-describedby="parent-category-error"
             >

@@ -1,4 +1,4 @@
-import CategoryCreateForm from "@/components/ui/categories/create-form";
+import CategoryCreateForm from "@/components/ui/dashboard/categories/create-form";
 import {fetchParentCategories, } from '@/actions/_category-actions'
 import Breadcrumbs from "@/components/ui/breadcrumbs";
 

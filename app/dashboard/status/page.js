@@ -1,6 +1,6 @@
 import Search from '@/components/ui/search';
-import Table from '@/components/ui/status/table';
-import { CreateStatus } from '@/components/ui/status/buttons';
+import Table from '@/components/ui/dashboard/status/table';
+import { CreateStatus } from '@/components/ui/dashboard/status/buttons';
 import {  poppins } from '@/components/ui/fonts';
 import { Suspense } from 'react';
 

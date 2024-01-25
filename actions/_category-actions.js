@@ -33,7 +33,7 @@ export async function fetchCategoryPages(query) {
 
   try {
     await db.connect();
-    const count = await User.find({ category_name: { $regex: regex } }).count();
+    const count = await Category.find({ category_name: { $regex: regex } }).count();
     await db.disconnect();
     const totalpages = Math.ceil(Number(count) / ITEM_PER_PAGE);
 
@@ -74,6 +74,16 @@ export const fetchCategoryById = async (id) => {
   }
 };
 
+export const fetchCategories = async () => {
+  try {
+    await db.connect();
+    const category = await Category.find({}).select('_id category_name');
+    await db.disconnect();
+    return category;
+  } catch (err) {
+    return({error: "Failed to fetch category!"});
+  }
+};
 
 export async function createCategory(formData) {
 

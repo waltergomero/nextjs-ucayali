@@ -1,6 +1,6 @@
 import Search from '@/components/ui/search';
-import Table from '@/components/ui/categories/table';
-import { CreateCategory } from '@/components/ui/categories/buttons';
+import Table from '@/components/ui/dashboard/categories/table';
+import { CreateCategory } from '@/components/ui/dashboard/categories/buttons';
 import {  poppins } from '@/components/ui/fonts';
 import { Suspense } from 'react';
 

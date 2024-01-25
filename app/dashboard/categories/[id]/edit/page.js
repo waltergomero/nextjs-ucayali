@@ -1,4 +1,4 @@
-import CategoryEditForm from "@/components/ui/categories/edit-form";
+import CategoryEditForm from "@/components/ui/dashboard/categories/edit-form";
 import Breadcrumbs from "@/components/ui/breadcrumbs";
 import {fetchCategoryById, fetchParentCategories, } from '@/actions/_category-actions'
 import notFound from "./not-found";

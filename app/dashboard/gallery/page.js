@@ -1,11 +1,11 @@
 import Search from '@/components/ui/search';
-import Table from '@/components/ui/gallery/table';
-import { UploadImages } from '@/components/ui/gallery/buttons';
+import Table from '@/components/ui/dashboard/gallery/table';
+import { UploadImages } from '@/components/ui/dashboard/gallery/buttons';
 import {  poppins } from '@/components/ui/fonts';
 import { Suspense } from 'react';
-import UploadUnSignedImages from '@/components/ui/gallery/imageUploadUnSigned';
+import UploadUnSignedImages from '@/components/ui/dashboard/gallery/imageUploadUnSigned';
 //import UploadSignedImages from '@/components/ui/gallery/imageUploadSigned';
-import {UploadImageDialog} from '@/components/ui/gallery/upload-dialogbox'
+import {UploadImageDialog} from '@/components/ui/dashboard/gallery/upload-dialogbox'
 
 export const metadata = {  title: 'Image Gallery',};
 

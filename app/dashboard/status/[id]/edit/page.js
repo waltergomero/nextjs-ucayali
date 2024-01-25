@@ -1,4 +1,4 @@
-import StatusEditForm from "@/components/ui/status/edit-form";
+import StatusEditForm from "@/components/ui/dashboard/status/edit-form";
 import Breadcrumbs from "@/components/ui/breadcrumbs";
 import {fetchStatusById, fetchStatusTypeId} from '@/actions/_status-actions'
 import notFound from "./not-found";

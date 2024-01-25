@@ -1,6 +1,6 @@
 import Search from '@/components/ui/search';
-import Table from '@/components/ui/users/table';
-import { CreateUser } from '@/components/ui/users/buttons';
+import Table from '@/components/ui/dashboard/users/table';
+import { CreateUser } from '@/components/ui/dashboard/users/buttons';
 import {  poppins } from '@/components/ui/fonts';
 import Pagination from '@/components/ui/pagination';
 import { fetchUserPages } from '@/actions/_user-actions';

@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { UpdateCategory, DeleteCategory } from '@/components/ui/categories/buttons';
+import { UpdateCategory, DeleteCategory } from '@/components/ui/dashboard/categories/buttons';
 import { fetchFilteredCategories } from '@/actions/_category-actions';
 import { Fragment } from 'react';
 

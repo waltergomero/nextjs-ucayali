@@ -1,7 +1,7 @@
 "use client";
 
 import { createStatus } from "@/actions/_status-actions";
-import { SaveStatusBtn } from "@/components/ui/status/buttons";
+import { SaveStatusBtn } from "@/components/ui/dashboard/status/buttons";
 import Link from "next/link";
 import { toast } from "sonner";
 
