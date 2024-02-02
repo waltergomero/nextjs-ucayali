@@ -26,6 +26,7 @@ export function UploadImageDialog({ categories }) {
     }
   };
 
+
   const removeSelectedImage = () => {
     setSelectedImnage();
   };
@@ -62,7 +63,7 @@ export function UploadImageDialog({ categories }) {
                   alt="Thumb"
                 />
                 <button onClick={removeSelectedImage} style={styles.delete}>
-                  Remove This Image
+                  Remove this image
                 </button>
               </div>
             )}
@@ -97,7 +98,7 @@ export function UploadImageDialog({ categories }) {
           </div>
         </div>
         <DialogFooter>
-          <Button type="submit">Save changes</Button>
+          <Button type="submit" variant="blue">Save changes</Button>
         </DialogFooter>
       </DialogContent>
     </Dialog>
@@ -118,7 +119,7 @@ const styles = {
     display: 'flex',
     flexDirection: 'column',
   },
-  image: { maxWidth: '100%', maxHeight: 320 },
+  image: { maxWidth: 425, maxHeight: '90%' },
   delete: {
     cursor: 'pointer',
     padding: 10,
